@@ -4,7 +4,7 @@ variable "profile" {
 }
 
 variable "region" {
-  default = "us-east-2"
+  default = "us-east-1"
   description = "AWS region"
 }
 
@@ -122,4 +122,18 @@ variable "advanced_options" {
 variable "node_to_node_encryption_enabled" {
   default     = false
   description = "Whether to enable node-to-node encryption"
+}
+
+variable "aws_region" {
+  default = "us-east-1"
+}
+
+variable "AMIS" {
+  type = map(string)
+  default = {
+    sa-east-1 = "ami-077d5d3682940b34a"
+    us-west-2 = "ami-06b94666"
+    eu-west-1 = "ami-0d729a60"
+    us-east-1 = "ami-085925f297f89fce1"
+  }
 }
