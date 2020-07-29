@@ -7,18 +7,11 @@ variable "demo_access_key" {
 variable "demo_secret_key" {
 }
 
-
-variable "path_to_private_key" {
-  default = "ansiblekey"
-}
 variable "demo_instance_type" {
   default = "t2.micro"
-  
 }
-
-
-variable "path_to_public_key" {
-  default = "ansiblekey.pub"
+variable "demokeypair" {
+  default = "ansiblekey"
 }
 variable "AMIS" {
   type = map(string)
