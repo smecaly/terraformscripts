@@ -2,7 +2,7 @@ resource "aws_launch_configuration" "demo_launch_cfg" {
   name_prefix = "demo_launch_config"
   image_id = var.AMIS[var.aws_region]
   instance_type = var.demo_instance_type
-  key_name = aws_key_pair.demokeypair.key_name
+  key_name = var.demokeypair
   security_groups = [aws_security_group.demoSg.id]
   user_data = <<-EOF
         #! /bin/bash
@@ -106,11 +106,6 @@ resource "aws_elb" "demoELB" {
   tags = {
       Name = "demoELB"
   }
-}
-
-resource "aws_key_pair" "demokeypair" {
-  key_name = "demokey"
-  public_key = file(var.path_to_public_key)
 }
 
 output "Vlan_ELB_IP" {
